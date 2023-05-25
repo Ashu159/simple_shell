@@ -1,5 +1,6 @@
 #ifndef SH_H
 #define SH_H
+
 #define B_S 1024
 
 #include <stdio.h>
