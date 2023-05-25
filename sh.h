@@ -1,14 +1,5 @@
-/* 
- * Sh.h
- *
- * Header file.
- * Contains function prototypes and external variable declaration.
- *
- * Creator: NADIR ATIF 
- */
-
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef SH_H
+#define SH_H
 #define B_S 1024
 
 #include <stdio.h>
@@ -28,5 +19,9 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 int _putchar(char c);
+
+int _sh_l(void);
+void _ex_cmd(char *c);
+void _hle_cd_ps(char *c);
 
 #endif
