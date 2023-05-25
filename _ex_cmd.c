@@ -13,7 +13,7 @@ void _ex_cmd(char *c)
 	pid_t pid = fork();
 	int status;
 
-	if(pid == -1)
+	if (pid == -1)
 	{
 		perror("./simple_shell");
 		exit(EXIT_FAILURE);
