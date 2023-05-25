@@ -11,6 +11,8 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <errno.h>
+#include <stdbool.h>
+#include <ctype.h>
 
 extern char **environ;
 
@@ -24,5 +26,6 @@ int _putchar(char c);
 int _sh_l(void);
 void _ex_cmd(char *c);
 void _hle_cd_ps(char *c);
+bool _empty_or_blank(char *s);
 
 #endif

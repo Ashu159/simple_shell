@@ -9,12 +9,18 @@
 
 int _sh_l(void)
 {
+	char p[] = "#cisfun$ ";
 	char c[B_S];
+	char p[] = "#cisfun$ ";
 
-	while (fgets(c, B_S, stdin) != NULL)
+	while (printf("%s", p), fgets(c, B_S, stdin) != NULL)
 	{
 		c[strcspn(c, "\n")] = '\0';
-		_hle_cd_ps(c);
+		if (!_empty_or_blank(c))
+		{
+			_hle_cd_ps(c);
+		}
+		printf("%s", p);
 	}
 
 	return (0);

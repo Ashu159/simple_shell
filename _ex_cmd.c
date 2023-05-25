@@ -10,19 +10,30 @@
  */
 void _ex_cmd(char *c)
 {
-	char *a[B_S / sizeof(char *)] = {NULL};
-	char *t = strtok(c, " ");
-	unsigned long int i = 0;
+	pid_t pid = fork();
+	int status;
 
-	while (t != NULL && i < B_S / sizeof(char *) - 1)
+	if(pid == -1)
 	{
-		a[i++] = t;
-		t = strtok(NULL, " ");
-	}
-	if (execve(a[0], a, NULL) == -1)
-	{
-		perror(a[0]);
+		perror("./simple_shell");
 		exit(EXIT_FAILURE);
+	}
+	else if (pid == 0)
+	{
+		char *a[B_S / sizeof(char *)] = {NULL};
+		char *t = strtok(c, " ");
+		unsigned long int i = 0;
+
+		while (t != NULL && i < B_S / sizeof(char *) - 1)
+		{
+			a[i++] = t;
+			t = strtok(NULL, " ");
+		}
+		if (execve(a[0], a, NULL) == -1)
+		{
+			perror("./simple_shell");
+			exit(EXIT_FAILURE);
+		}
 	}
 }
 
