@@ -10,6 +10,8 @@
 
 int main(void)
 {
+	char p[] = "#cisfun$ ";
+	printf("%s", p);
 	_sh_l();
 	return (0);
 }
