@@ -10,20 +10,19 @@
  */
 void _ex_cmd(char *c)
 {
-    char *a[B_S / sizeof(char *)] = {NULL};
-    char *t = strtok(c, " ");
-    unsigned long int i = 0;
+	char *a[B_S / sizeof(char *)] = {NULL};
+	char *t = strtok(c, " ");
+	unsigned long int i = 0;
 
-    while (t != NULL && i < B_S / sizeof(char *) - 1)
-    {
-        a[i++] = t;
-        t = strtok(NULL, " ");
-    }
-
-    if (execve(a[0], a, NULL) == -1)
-    {
-        perror(a[0]);
-        exit(EXIT_FAILURE);
-    }
+	while (t != NULL && i < B_S / sizeof(char *) - 1)
+	{
+		a[i++] = t;
+		t = strtok(NULL, " ");
+	}
+	if (execve(a[0], a, NULL) == -1)
+	{
+		perror(a[0]);
+		exit(EXIT_FAILURE);
+	}
 }
 
