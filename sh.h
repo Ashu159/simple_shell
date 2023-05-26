@@ -1,31 +1,33 @@
-#ifndef SH_H
-#define SH_H
-
-#define B_S 1024
+#ifndef S_SHELL_H
+#define S_SHELL_H
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <errno.h>
-#include <stdbool.h>
-#include <ctype.h>
+#include <signal.h>
 
-extern char **environ;
-
-int _strcmp(char *s1, char *s2);
-size_t _strncmp(char *s1, char *s2, size_t n);
-int _strlen(char *s);
+void prompt_handler(void);
+void handle_signal(int signals);
+void handle_eof(char *buffer);
+void handle_exit(char **input_command);
+void execute_child(char **command, char *shell_name, char **envp, int loops);
+int dir_changes(const char *path);
+void execute_command(char **command, char *name, char **env, int cicles);
+void print_env(char **env);
+char **_dirsPATH(char **env);
+void command_error(char *name, int loops, char **command);
+char **tokenize(char *buffer, const char *delim);
+void free_memory(char **command);
+void freeMem_and_exit(char **command);
+int _strcmp(char *str1, char *str2);
+unsigned int _strlen(char *str);
 char *_strcpy(char *dest, char *src);
+int _strint(char *s);
 char *_strcat(char *dest, char *src);
-int _putchar(char c);
-
-int _sh_l(void);
-void _ex_cmd(char *c);
-void _hle_cd_ps(char *c);
-bool _empty_or_blank(char *s);
 
 #endif
