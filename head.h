@@ -13,7 +13,7 @@
 
 void c_p_h(void);
 void s_i_h(int s);
-void c_eof_h(char *buffer);
+void c_eof_h(char *b);
 void c_e_h(char **i_c);
 void e_c(char **c, char *n, char **e_p, int lps);
 int d_c(const char *p);
@@ -30,7 +30,7 @@ char *_strcpy(char *d, char *s);
 int _strint(char *s);
 char *_strcat(char *d, char *s);
 char *_strchr(const char *s, const char c);
-int _strspn(const char* s, const char* c);
+int _strspn(const char *s, const char *c);
 
 char *r_i(void);
 char **prs(char *i_s);
